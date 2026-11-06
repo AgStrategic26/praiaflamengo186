@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://praiaflamengo186.com.br/sitemap.xml
