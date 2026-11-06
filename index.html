@@ -503,7 +503,7 @@ footer small{font-size:13px}
     <div class="faq rev">
       <details open><summary>Onde fica o Praia do Flamengo 186?</summary><p>Na Praia do Flamengo, 186, no Flamengo, Zona Sul do Rio, de frente para o Parque do Flamengo, entre a Rua Machado de Assis e a Rua Almirante Tamandaré.</p></details>
       <details><summary>Por que a vista é indevassável?</summary><p>Entre o empreendimento e a Baía de Guanabara está o Parque do Flamengo, tombado pelo Iphan desde 1965. O tombamento não permite novas construções no parque, o que preserva a vista para o Pão de Açúcar.</p></details>
-      <details><summary>Quais são as tipologias?</summary><p>Apartamentos de 2, 3 e 4 quartos, além de gardens e coberturas, com 1 ou 2 vagas. São 174 unidades em três edifícios, com metragens preliminares de 53 a 281 m². Plantas e valores serão apresentados no lançamento, primeiro para quem estiver na lista prioritária.</p></details>
+      <details><summary>Quais são as tipologias?</summary><p>Apartamentos de 2, 3 e 4 quartos, além de gardens e coberturas, com 1 ou 2 vagas. São 174 unidades em três edifícios, com metragens preliminares de 53 a 281 m². Plantas e valores serão apresentados no lançamento, primeiro para quem estiver na lista prioritária. Veja os detalhes em <a href="plantas-e-metragens/">plantas e metragens</a>.</p></details>
       <details><summary>Quem é a incorporadora?</summary><p>O retrofit é conduzido pela Performance Empreendimentos Imobiliários, em parceria com o BTG Pactual.</p></details>
       <details><summary>Quando começam as vendas?</summary><p>O lançamento está previsto para 2027. As vendas só começam após o registro da incorporação, e quem está na lista prioritária recebe o material e as condições primeiro.</p></details>
       <details><summary>Quem assina a arquitetura?</summary><p>O conjunto art déco foi projetado nos anos 1940 pelo arquiteto Robert Prentice, autor de obras como a Central do Brasil, o Edifício Standard e o Edifício Itaoca. Agora passa por retrofit completo.</p></details>
@@ -542,6 +542,11 @@ footer small{font-size:13px}
 <footer>
   <div class="wrap">
     <b>PRAIA DO FLAMENGO 186</b>
+    <nav aria-label="Conteúdos" style="display:flex;flex-wrap:wrap;gap:8px 22px;font-size:16px">
+      <a href="vista-pao-de-acucar/">Vista para o Pão de Açúcar</a>
+      <a href="plantas-e-metragens/">Plantas e metragens</a>
+      <a href="robert-prentice-art-deco/">Robert Prentice e o art déco</a>
+    </nav>
     <span>Atendimento: Jannia Macedo, corretora de imóveis · CRECI 58119 · WhatsApp (21) 99918-1017 · jannia.macedovendasrj@gmail.com</span>
     <span>Material de pré-lançamento. Imagens de interiores e de lazer meramente ilustrativas, como referência de padrão; fotos da região meramente ilustrativas. Informações sujeitas a alteração sem aviso prévio. Empreendimento em fase de aprovação; as vendas só serão iniciadas após o registro da incorporação.</span>
     <small>Fotos da região: Kamache, “Pão de Açúcar e Aterro do Flamengo” (CC BY-SA 4.0); CyroHenrique, “Aterro do Flamengo - Vista do Pão de Açúcar” (CC BY-SA 4.0); Vani Ribeiro, “Aterro do Flamengo 03” (CC BY-SA 3.0), Wikimedia Commons.</small>
@@ -568,7 +573,7 @@ footer small{font-size:13px}
   /* ===== CONFIGURAÇÃO ===== */
   var EMAIL_LEADS = 'jannia.macedovendasrj@gmail.com';
   var WHATS = '5521999181017';
-  var GA_ID = '';     // Google Analytics 4 (G-XXXXXXXXXX)
+  var GA_ID = 'GTM-TB3MQR25'; // tag do Google (GA4 "Praia do Flamengo 186 - Jannia")
   var PIXEL_ID = '';  // Meta Pixel (número do pixel da conta de anúncios)
 
   /* consentimento (LGPD): Analytics e Pixel só carregam depois do aceite */
@@ -581,8 +586,8 @@ footer small{font-size:13px}
     gtag('consent', 'update', {ad_storage:'granted', analytics_storage:'granted', ad_user_data:'granted', ad_personalization:'granted'});
     if (GA_ID) {
       var s = document.createElement('script'); s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(s);
-      gtag('js', new Date()); gtag('config', GA_ID);
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GA_ID; document.head.appendChild(s);
+      gtag('js', new Date());
     }
     if (PIXEL_ID) {
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
