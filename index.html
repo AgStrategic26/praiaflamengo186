@@ -322,7 +322,8 @@ footer small{font-size:13px}
 <main>
 <section class="capa" id="inicio">
   <video class="capa-video" id="capa-video" muted playsinline preload="auto" poster="img/capa-video.webp" aria-label="Vista do alto da orla do Flamengo com o Pão de Açúcar ao fundo">
-    <source src="video/capa.mp4" type="video/mp4">
+    <source src="video/capa-960.mp4" type="video/mp4" media="(max-width: 900px)">
+    <source src="video/capa-1600.mp4" type="video/mp4">
   </video>
   <div class="capa-corpo">
     <div class="capa-topo">
@@ -620,7 +621,7 @@ footer small{font-size:13px}
       aviso.classList.remove('on'); if (v === 'aceito') carregaMedicao();
     });
   });
-  function evento(n, d){ try { gtag('event', n, d || {}); } catch(e){} try { if (window.fbq && n === 'clique_whatsapp') fbq('track', 'Contact'); } catch(e){} }
+  function evento(n, d){ try { gtag('event', n, d || {}); } catch(e){} try { if (window.fbq && n === 'whatsapp_click') fbq('track', 'Contact'); } catch(e){} }
 
   var utm = {};
   try {
@@ -633,7 +634,7 @@ footer small{font-size:13px}
   var msg = encodeURIComponent('Olá, Jannia! Vi a página do Praia do Flamengo 186 e quero saber mais.');
   document.querySelectorAll('.js-wa').forEach(function(a){
     a.href = 'https://wa.me/' + WHATS + '?text=' + (a.dataset.msg ? encodeURIComponent(a.dataset.msg) : msg);
-    a.addEventListener('click', function(){ evento('clique_whatsapp', {local: a.dataset.cta || ''}); });
+    a.addEventListener('click', function(){ evento('whatsapp_click', {local: a.dataset.cta || ''}); });
   });
 
   var sel = document.getElementById('tipologia');
