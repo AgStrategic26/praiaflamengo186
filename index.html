@@ -202,6 +202,7 @@ form .btn{margin-top:10px;width:100%;white-space:normal;text-align:center;line-h
 .ok,.falha{display:none;padding:18px 20px;font-size:18px}
 .ok{background:var(--bege);border-left:3px solid var(--grafite);color:var(--grafite)}
 .falha{background:#F6E2DA;color:#7A2E1A}
+.falha a{color:inherit;text-decoration:underline;font-weight:500}
 .ok.on,.falha.on{display:block}
 
 footer{border-top:1px solid var(--bege-2);font-size:15px;color:var(--suave);line-height:1.6}
@@ -696,8 +697,9 @@ footer small{font-size:13px}
       Página: location.href
     };
     Object.keys(utm).forEach(function(k){ dados[k] = utm[k]; });
+    var ctl = window.AbortController ? new AbortController() : null; if (ctl) setTimeout(function(){ ctl.abort(); }, 15000);
     fetch('https://formsubmit.co/ajax/' + EMAIL_LEADS, {
-      method: 'POST', headers: {'Content-Type':'application/json', 'Accept':'application/json'}, body: JSON.stringify(dados)
+      signal: ctl ? ctl.signal : undefined, method: 'POST', headers: {'Content-Type':'application/json', 'Accept':'application/json'}, body: JSON.stringify(dados)
     }).then(function(r){ return r.json(); }).then(function(d){
       if (!(d && (d.success === true || d.success === 'true'))) throw new Error('falha');
       form.querySelectorAll('.campo, #enviar').forEach(function(el){ el.style.display = 'none'; });
@@ -705,7 +707,10 @@ footer small{font-size:13px}
       evento('generate_lead', {tipologia: sel.value});
       try { if (window.fbq) fbq('track', 'Lead'); } catch(e){}
     }).catch(function(){
+      var msg = 'Olá, Jannia! Sou ' + nome.value.trim() + ' (' + tel.value.trim() + ') e quero entrar na lista prioritária do Praia do Flamengo 186.';
+      falha.innerHTML = 'O envio demorou mais que o normal. <a href="https://wa.me/5521999181017?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">Toque aqui para mandar seus dados pelo WhatsApp</a> ou tente de novo.';
       falha.classList.add('on'); btn.disabled = false; btn.textContent = 'Entrar na lista prioritária';
+      evento('form_submit', {status: 'falha'});
     });
   });
 })();
